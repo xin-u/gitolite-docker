@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  gitolite:
+    build: .
+    container_name: gitolite
+    restart: always
+    ports:
+      - 2222:22
+    volumes:
+      - ./keys:/etc/ssh/keys
+      - ./git:/var/lib/git
+    environment:
+      SSH_KEY: ""
+      SSH_KEY_NAME: ""
